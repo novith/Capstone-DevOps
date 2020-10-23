@@ -4,7 +4,7 @@ node {
     }
     stage("Linting HTML") {
       echo 'Linting'
-      sh 'tidy -q -e *.html'              
+      sh 'tidy -q -e index.html'              
     }
     stage('Docker Blue image') {
 	    echo 'Building Docker Blue image'
