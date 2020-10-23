@@ -3,7 +3,8 @@ node {
       echo 'Git Checkout and check environment'
     }
     stage("Linting HTML") {
-      echo 'Linting...'
+      echo 'Linting'
+      sh 'tidy -q -e *.html'              
     }
     stage('Docker Blue image') {
 	    echo 'Building Docker Blue image'
