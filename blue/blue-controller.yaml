@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: bluereplicationcontroller
+  labels:
+    app: blue
+spec:
+  replicas: 1
+  selector:
+    app: blue
+  template:
+    metadata:
+      labels:
+        app: blue
+    spec:
+      containers:
+      - image: "mreddy7/capstoneblue"
+        name: blue
+        ports:
+          - containerPort: 80
+            name: http
