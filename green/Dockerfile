@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:alpine
 
 ## Step 1:
 # Copy source code to working directory
