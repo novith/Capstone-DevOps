@@ -1,10 +1,5 @@
-FROM nginx
+FROM nginx:latest
 
 ## Step 1:
-# Create a working directory
-WORKDIR /usr/share/nginx/html
-
-## Step 2:
 # Copy source code to working directory
-COPY index.html /usr/share/nginx/html
-
+COPY ./index.html /usr/share/nginx/html/index.html
