@@ -11,7 +11,7 @@ dockerpath="mreddy7/greenhtml"
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
-docker login --username bnair75
+docker login --username mreddy7
 docker tag greenhtml $dockerpath
 
 # Step 3:

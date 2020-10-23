@@ -14,17 +14,17 @@ node {
     stage('Docker Blue image') {
 	    echo 'Building Docker Blue image'
       withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubpwd')]) {
-	     	sh 'docker login -u mreddy7 -p ${env.dockerHubPassword}'
-	     	sh 'sudo docker build -t ${bluesite} blue/.'
-	     	sh 'sudo docker tag ${bluesite} ${bluesite}'
+	     	sh "docker login -u mreddy7 -p ${env.dockerHubPassword}"
+	     	sh "sudo docker build -t ${bluesite} blue/."
+	     	sh "sudo docker tag ${bluesite} ${bluesite}"
 	     	sh "sudo docker push ${bluesite}"
       }
     }
     stage('Docker Green image') {
-	    echo 'Building Docker image green'
+	    echo 'Building Docker Green image'
       withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerhubpwd')]) {
 	     	sh 'docker login -u mreddy7 -p ${env.dockerHubPassword}'
-	     	sh "sudo docker build -t ${greensite} blue/."
+	     	sh "sudo docker build -t ${greensite} green/."
 	     	sh "sudo docker tag ${greensite} ${greensite}"
 	     	sh "sudo docker push ${greensite}"
       }
