@@ -15,19 +15,19 @@ node {
     stage('Docker Blue image') {
 	    echo 'Building Docker Blue image'
       withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-	     	sh "sudo docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-	     	sh "sudo docker build -t ${bluesite} blue/."
-	     	sh "sudo docker tag ${bluesite} ${bluesite}"
-	     	sh "sudo docker push ${bluesite}"
+	     	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+	     	sh "docker build -t ${bluesite} blue/."
+	     	sh "docker tag ${bluesite} ${bluesite}"
+	     	sh "docker push ${bluesite}"
       }
    }
     stage('Docker Green image') {
 	    echo 'Building Docker Green image'
       withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-	     	sh "sudo docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-	     	sh "sudo docker build -t ${greensite} green/."
-	     	sh "sudo docker tag ${greensite} ${greensite}"
-	     	sh "sudo docker push ${greensite}"
+	     	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+	     	sh "docker build -t ${greensite} green/."
+	     	sh "docker tag ${greensite} ${greensite}"
+	     	sh "docker push ${greensite}"
       }
     }
     stage('Deploy') {
