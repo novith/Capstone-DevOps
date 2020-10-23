@@ -9,8 +9,8 @@ node {
     }
     stage("Linting HTML") {
       echo 'Linting'
-      sh '/usr/bin/hadolint blue/Dockerfile'
-      sh '/usr/bin/hadolint green/Dockerfile'            
+      sh 'hadolint blue/Dockerfile'
+      sh 'hadolint green/Dockerfile'            
     }
     stage('Docker Blue image') {
 	    echo 'Building Docker Blue image'
