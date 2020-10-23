@@ -1,20 +1,17 @@
 node {
-    stage('Checking out git repo') {
-      echo 'Checkout...'
+    stage('Setup and check Env') {
+      echo 'Git Checkout and check environment'
     }
-    stage('Checking environment') {
-      echo 'Checking environment...'
-    }
-    stage("Linting") {
+    stage("Linting HTML") {
       echo 'Linting...'
     }
-    stage('Building image blue') {
-	    echo 'Building Docker image blue...'
+    stage('Docker Blue image') {
+	    echo 'Building Docker Blue image'
     }
-    stage('Building image green') {
-	    echo 'Building Docker image green...'
+    stage('Docker Green image') {
+	    echo 'Building Docker image green'
     }
-    stage('Deploying to AWS EKS') {
+    stage('Deploy') {
       echo 'Deploying to AWS EKS...'
     }
 }
